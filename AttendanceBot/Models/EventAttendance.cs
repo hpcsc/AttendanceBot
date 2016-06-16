@@ -8,12 +8,12 @@ namespace AttendanceBot.Models
     {
         private Dictionary<string, AttendanceEntry> _attendance;        
         private string _conversationId;
-        private string _name;
+        public string Name { get; private set; }
 
         public EventAttendance(string conversationId, string name)
         {
             _conversationId = conversationId;
-            _name = name;
+            Name = name;
             _attendance = new Dictionary<string, AttendanceEntry>();
         }
 
@@ -55,7 +55,7 @@ namespace AttendanceBot.Models
 
         public override string ToString()
         {
-            return $"## {_name}" +
+            return $"## {Name}" +
                 Environment.NewLine + Environment.NewLine + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.Yes), "Yes") +
                 Environment.NewLine + Environment.NewLine + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.No), "No") +
                 Environment.NewLine + Environment.NewLine + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.Maybe), "Maybe");

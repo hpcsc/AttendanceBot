@@ -52,4 +52,12 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
             Set Maybe for current user with an optional message
         </td>
     </tr>
+    <tr>
+        <td>
+            /list
+        </td>
+        <td>
+            List all events available
+        </td>
+    </tr>
 </table>

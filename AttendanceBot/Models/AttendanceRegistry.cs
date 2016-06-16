@@ -1,5 +1,6 @@
 ﻿using LanguageExt;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AttendanceBot.Models
 {
@@ -28,6 +29,18 @@ namespace AttendanceBot.Models
             }
 
             return null;
+        }
+
+        public static List<string> FindAllEventNames(string conversationId)
+        {
+            var eventNames = new List<string>();
+
+            if(_attendanceHistory.ContainsKey(conversationId))
+            {
+                eventNames = _attendanceHistory[conversationId].Values.Select(v => v.Name).ToList();
+            }
+
+            return eventNames;
         }
 
         public static Either<string, EventAttendance> Start(string conversationId, string eventName)

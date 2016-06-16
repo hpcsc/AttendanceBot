@@ -14,7 +14,8 @@ namespace AttendanceBot.Commands
             new StatusCommand(),
             new InCommand(),
             new OutCommand(),
-            new MaybeCommand()
+            new MaybeCommand(),
+            new ListEventsCommand()
         };
 
         public static Option<string> Process(Message message)

@@ -164,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="AppSettingsSecrets.config" />
     <None Include="Properties\PublishProfiles\Arvixe.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

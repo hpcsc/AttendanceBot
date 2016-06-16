@@ -12,7 +12,7 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
     </tr>
     <tr>
         <td>
-            /start EVENT_NAME
+            $start EVENT_NAME
         </td>
         <td>
             Start an event. When a new event is started, it's automatically set as current event
@@ -20,9 +20,9 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
     </tr>
     <tr>
         <td>
-            /status
+            $status
             <br/>
-            /status EVENT_NAME
+            $status EVENT_NAME
         </td>
         <td>
             View current status of an event (how many Yes/No/Maybe). When calling without parameter, it's default to current event
@@ -30,7 +30,7 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
     </tr>
     <tr>
         <td>
-            /in
+            $in
         </td>
         <td>
             Set In for current user
@@ -38,7 +38,7 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
     </tr>
     <tr>
         <td>
-            /out (Message)
+            $out (Message)
         </td>
         <td>
             Set Out for current user with an optional message
@@ -46,7 +46,7 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
     </tr>
     <tr>
         <td>
-            /maybe (Message)
+            $maybe (Message)
         </td>
         <td>
             Set Maybe for current user with an optional message
@@ -54,7 +54,7 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
     </tr>
     <tr>
         <td>
-            /list
+            $list
         </td>
         <td>
             List all events available
@@ -62,7 +62,7 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
     </tr>
     <tr>
         <td>
-            /select EVENT_NAME
+            $select EVENT_NAME
         </td>
         <td>
             Set an event as active
@@ -70,7 +70,7 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
     </tr>
     <tr>
         <td>
-            /help
+            $help
         </td>
         <td>
             Show available bot commands

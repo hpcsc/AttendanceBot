@@ -15,6 +15,6 @@ namespace AttendanceBot.Commands
         public abstract string CommandName { get; }        
         public abstract Option<string> Handle(string[] messageElements, Message originalMessage);        
 
-        protected string CommandPrefix { get { return "/"; } }        
+        protected string CommandPrefix { get { return "$"; } }        
     }
 }

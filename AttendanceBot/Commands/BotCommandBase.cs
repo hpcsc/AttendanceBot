@@ -1,4 +1,5 @@
-﻿using LanguageExt;
+﻿using AttendanceBot.Helpers;
+using LanguageExt;
 using Microsoft.Bot.Connector;
 using System;
 
@@ -8,15 +9,12 @@ namespace AttendanceBot.Commands
     {
         public bool CanHandle(string[] messageElements)
         {
-            return messageElements.Length > 0 && StringEquals(messageElements[0], "/" + CommandName);
+            return messageElements.Length > 0 && messageElements[0].EqualsIgnoreCase(CommandName);
         }
-
-        protected abstract string CommandName { get; }
+        
+        public abstract string CommandName { get; }        
         public abstract Option<string> Handle(string[] messageElements, Message originalMessage);        
 
-        protected bool StringEquals(string first, string second)
-        {
-            return string.Equals(first, second, StringComparison.InvariantCultureIgnoreCase);
-        }
+        protected string CommandPrefix { get { return "/"; } }        
     }
 }

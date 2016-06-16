@@ -7,7 +7,7 @@ namespace AttendanceBot.Commands
 {
     public class InCommand : BotCommandBase
     {
-        protected override string CommandName { get { return "in"; } }
+        public override string CommandName { get { return CommandPrefix + "in"; } }
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {

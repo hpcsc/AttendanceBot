@@ -39,6 +39,10 @@ namespace AttendanceBot.Commands
                 );
         }
         
+        public static List<string> ListAvailableCommands()
+        {
+            return _commands.Select(c => c.CommandName).ToList();
+        }
 
         private static Option<string[]> SplitMessage(string message)
         {

@@ -1,7 +1,10 @@
 ﻿using AttendanceBot.Commands;
+using AttendanceBot.Helpers;
 using Microsoft.Bot.Connector;
+using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Linq;
 
 namespace AttendanceBot
 {
@@ -11,7 +14,15 @@ namespace AttendanceBot
         public async Task<Message> Post([FromBody]Message message)
         {
             if (message.Type == "Message")
-            {                
+            {
+                if (message.Text.EqualsIgnoreCase("/help"))
+                {
+                    var commandReplyMessage = "## Available commands: " + Environment.NewLine + Environment.NewLine +
+                        string.Join(Environment.NewLine, CommandProcessor.ListAvailableCommands().Select(c => "- " + c));
+
+                    return message.CreateReplyMessage(commandReplyMessage);
+                }
+
                 var result = CommandProcessor.Process(message);
                 Message reply = null;  
                 result.IfSome(

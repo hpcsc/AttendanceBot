@@ -8,7 +8,7 @@ namespace AttendanceBot.Commands
 {
     public class ListEventsCommand : BotCommandBase
     {
-        protected override string CommandName { get { return "list"; } }
+        public override string CommandName { get { return CommandPrefix + "list"; } }
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {

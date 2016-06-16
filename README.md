@@ -60,4 +60,12 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
             List all events available
         </td>
     </tr>
+    <tr>
+        <td>
+            /help
+        </td>
+        <td>
+            Show available bot commands
+        </td>
+    </tr>
 </table>

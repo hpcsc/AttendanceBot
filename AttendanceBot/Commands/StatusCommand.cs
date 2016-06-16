@@ -7,7 +7,7 @@ namespace AttendanceBot.Commands
 {
     public class StatusCommand : BotCommandBase
     {
-        protected override string CommandName { get { return "status"; } }
+        public override string CommandName { get { return CommandPrefix + "status"; } }
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {

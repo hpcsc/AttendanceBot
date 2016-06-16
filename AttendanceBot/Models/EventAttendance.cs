@@ -7,10 +7,12 @@ namespace AttendanceBot.Models
     public class EventAttendance
     {
         private Dictionary<string, AttendanceEntry> _attendance;        
+        private string _conversationId;
         private string _name;
 
-        public EventAttendance(string name)
+        public EventAttendance(string conversationId, string name)
         {
+            _conversationId = conversationId;
             _name = name;
             _attendance = new Dictionary<string, AttendanceEntry>();
         }

@@ -43,7 +43,7 @@ namespace AttendanceBot.Models
             }
             else
             {
-                var attendance = new EventAttendance(eventName);
+                var attendance = new EventAttendance(conversationId, eventName);
                 _attendanceHistory[conversationId].Add(eventName, attendance);
                 _current[conversationId] = attendance;
                 return attendance;

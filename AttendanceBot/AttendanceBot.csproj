@@ -136,6 +136,7 @@
     <Compile Include="Commands\BotCommandBase.cs" />
     <Compile Include="Commands\CommandProcessor.cs" />
     <Compile Include="Commands\ListEventsCommand.cs" />
+    <Compile Include="Commands\SelectEventCommand.cs" />
     <Compile Include="Commands\StatusCommand.cs" />
     <Compile Include="Commands\IBotCommand.cs" />
     <Compile Include="Commands\InCommand.cs" />

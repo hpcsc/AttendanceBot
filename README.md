@@ -62,6 +62,14 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
     </tr>
     <tr>
         <td>
+            /select EVENT_NAME
+        </td>
+        <td>
+            Set an event as active
+        </td>
+    </tr>
+    <tr>
+        <td>
             /help
         </td>
         <td>

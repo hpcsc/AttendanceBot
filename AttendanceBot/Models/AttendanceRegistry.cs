@@ -43,6 +43,19 @@ namespace AttendanceBot.Models
             return eventNames;
         }
 
+        public static string SetActive(string conversationId, string eventName)
+        {
+            var result = FindByName(conversationId, eventName);
+            return result.Match(
+                    e =>
+                    {
+                        _current[conversationId] = e;
+                        return $"**{eventName}** is set as active";
+                    },
+                    () => $"Event with name **{eventName}** not found"
+                );
+        }
+
         public static Either<string, EventAttendance> Start(string conversationId, string eventName)
         {
             if(!_attendanceHistory.ContainsKey(conversationId))

@@ -1,4 +1,5 @@
-﻿using AttendanceBot.Models;
+﻿using System;
+using AttendanceBot.Models;
 using LanguageExt;
 using Microsoft.Bot.Connector;
 
@@ -6,10 +7,7 @@ namespace AttendanceBot.Commands
 {
     public class InCommand : BotCommandBase
     {
-        public override bool CanHandle(string[] messageElements)
-        {
-            return messageElements.Length > 0 && StringEquals(messageElements[0], "/in");            
-        }
+        protected override string CommandName { get { return "in"; } }
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {

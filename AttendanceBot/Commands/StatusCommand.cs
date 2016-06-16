@@ -7,10 +7,7 @@ namespace AttendanceBot.Commands
 {
     public class StatusCommand : BotCommandBase
     {
-        public override bool CanHandle(string[] messageElements)
-        {
-            return messageElements.Length > 0 && StringEquals(messageElements[0], "/status");
-        }
+        protected override string CommandName { get { return "status"; } }
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {

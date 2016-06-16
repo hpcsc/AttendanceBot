@@ -7,10 +7,7 @@ namespace AttendanceBot.Commands
 {
     public class MaybeCommand : BotCommandBase
     {
-        public override bool CanHandle(string[] messageElements)
-        {
-            return messageElements.Length > 0 && StringEquals(messageElements[0], "/maybe");
-        }
+        protected override string CommandName { get { return "maybe"; } }
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {

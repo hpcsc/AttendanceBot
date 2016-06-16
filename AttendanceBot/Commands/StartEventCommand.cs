@@ -7,13 +7,15 @@ namespace AttendanceBot.Commands
 {
     public class StartEventCommand : BotCommandBase
     {
-        public override bool CanHandle(string[] messageElements)
-        {
-            return messageElements.Length > 1 && StringEquals(messageElements[0], "/start");
-        }        
+        protected override string CommandName { get { return "start"; } }
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {
+            if(messageElements.Length == 1)
+            {
+                return "Event name is required";
+            }
+
             var result = AttendanceRegistry.Start(originalMessage.ConversationId, 
                 string.Join(" ", messageElements.Skip(1)));
 

@@ -6,14 +6,13 @@ namespace AttendanceBot.Commands
 {
     public abstract class BotCommandBase : IBotCommand
     {
-        public abstract bool CanHandle(string[] messageElements);
-        public abstract Option<string> Handle(string[] messageElements, Message originalMessage);        
-
-        protected bool HasValidCommandFormat(string[] messageElements, string commandName, int numOfArguments)
+        public bool CanHandle(string[] messageElements)
         {
-            return messageElements.Length == numOfArguments &&
-                StringEquals(messageElements[0], commandName);
+            return messageElements.Length > 0 && StringEquals(messageElements[0], "/" + CommandName);
         }
+
+        protected abstract string CommandName { get; }
+        public abstract Option<string> Handle(string[] messageElements, Message originalMessage);        
 
         protected bool StringEquals(string first, string second)
         {

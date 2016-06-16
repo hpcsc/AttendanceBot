@@ -1,7 +1,7 @@
 A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my fellow ThoughtWorker Col Harris). It's ported to use Microsoft Bot Framework
 
 ## Supported Chat Platforms
-- Telegram
+- Telegram (@AnotherAttendanceBot)
 
 ## Supported Commands
 

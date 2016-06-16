@@ -1,7 +1,10 @@
 A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my fellow ThoughtWorker Col Harris). It's ported to use Microsoft Bot Framework
 
+![Screenshot](https://dl.dropboxusercontent.com/u/55034418/AttendanceBotScreenshot.png)
+
 ## Supported Chat Platforms
 - Telegram (@AnotherAttendanceBot)
+- Skype (https://join.skype.com/bot/fe22fc1e-b24f-4484-a2b4-683c1422f8de)
 
 ## Supported Commands
 

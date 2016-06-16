@@ -55,7 +55,7 @@ namespace AttendanceBot.Models
 
         public override string ToString()
         {
-            return $"## {Name}" +
+            return $"## {Name}" + Environment.NewLine +
                 Environment.NewLine + Environment.NewLine + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.Yes), "Yes") +
                 Environment.NewLine + Environment.NewLine + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.No), "No") +
                 Environment.NewLine + Environment.NewLine + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.Maybe), "Maybe");
@@ -68,7 +68,7 @@ namespace AttendanceBot.Models
 
         private string FormatAttendanceEntries(List<AttendanceEntry> entries, string name)
         {
-            return $"{name} ({entries.Count})" + Environment.NewLine +
+            return $"{name} ( {entries.Count} )" + Environment.NewLine +
                 string.Join(Environment.NewLine, 
                         entries.Select(e => $"- {e.Name} " + 
                         (string.IsNullOrWhiteSpace(e.Message) ? string.Empty : $"({e.Message})")));

@@ -1,6 +1,8 @@
-﻿using LanguageExt;
+﻿using AttendanceBot.Infrastructure.Repositories;
+using LanguageExt;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace AttendanceBot.Models
 {
@@ -9,6 +11,38 @@ namespace AttendanceBot.Models
         private static readonly Dictionary<string, Dictionary<string, EventAttendance>> _attendanceHistory = 
             new Dictionary<string, Dictionary<string, EventAttendance>>();
         private static readonly Dictionary<string, EventAttendance> _current = new Dictionary<string, EventAttendance>();
+
+        public static void Initialize()
+        {
+            var repository = new EventAttendanceRepository();
+            repository.FindAllEvents()
+                .Match(
+                events =>
+                {
+                    foreach (var e in events)
+                    {
+                        if (!_attendanceHistory.ContainsKey(e.ConversationId))
+                        {
+                            _attendanceHistory[e.ConversationId] = new Dictionary<string, EventAttendance>();
+                        }
+
+                        _attendanceHistory[e.ConversationId][e.Name] = e;
+                    }
+                },
+                error =>
+                {
+                    //Log 
+                });            
+        }
+
+        public static void SaveState()
+        {
+            var repository = new EventAttendanceRepository();
+            foreach (var e in _attendanceHistory.Values.SelectMany(v => v.Values))
+            {
+                repository.Save(e);
+            }
+        }
 
         public static Option<EventAttendance> FindCurrent(string conversationId)
         {

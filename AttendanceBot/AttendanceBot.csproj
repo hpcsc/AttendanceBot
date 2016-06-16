@@ -148,6 +148,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\StringExtensions.cs" />
+    <Compile Include="Infrastructure\Repositories\DatabaseConfiguration.cs" />
+    <Compile Include="Infrastructure\Repositories\EventAttendanceRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\MongoRepositoryBase.cs" />
+    <Compile Include="Infrastructure\Settings\ApplicationSettings.cs" />
     <Compile Include="Models\AttendanceEntry.cs" />
     <Compile Include="Models\AttendanceRegistry.cs" />
     <Compile Include="Models\AttendanceStatus.cs" />

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using AttendanceBot.Infrastructure.Repositories;
+using AttendanceBot.Models;
 using System.Web.Http;
-using System.Web.Routing;
 
 namespace AttendanceBot
 {
@@ -12,6 +9,14 @@ namespace AttendanceBot
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            DatabaseConfiguration.ConfigureMapper();
+            AttendanceRegistry.Initialize();
+        }
+        
+        protected void Application_End()
+        {
+            AttendanceRegistry.SaveState();
         }
     }
 }

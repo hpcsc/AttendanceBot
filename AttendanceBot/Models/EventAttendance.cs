@@ -6,15 +6,17 @@ namespace AttendanceBot.Models
 {
     public class EventAttendance
     {
-        private Dictionary<string, AttendanceEntry> _attendance;        
-        private string _conversationId;
+        private Dictionary<string, AttendanceEntry> _attendance;
+        public string ConversationId { get; private set; }
         public string Name { get; private set; }
+        public DateTime CreatedDate { get; private set; }
 
         public EventAttendance(string conversationId, string name)
         {
-            _conversationId = conversationId;
+            ConversationId = conversationId;
             Name = name;
             _attendance = new Dictionary<string, AttendanceEntry>();
+            CreatedDate = DateTime.Now;
         }
 
         public void In(string userId, string name)

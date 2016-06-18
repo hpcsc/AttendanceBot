@@ -15,9 +15,9 @@ namespace AttendanceBot
         {
             if (message.Type == "Message")
             {
-                if (message.Text.EqualsIgnoreCase("/help"))
+                if (message.Text.EqualsIgnoreCase("$help"))
                 {
-                    var commandReplyMessage = "## Available commands: " + Environment.NewLine + Environment.NewLine +
+                    var commandReplyMessage = "## Available commands: " + 2.Lines() +
                         string.Join(Environment.NewLine, CommandProcessor.ListAvailableCommands().Select(c => "- " + c));
 
                     return message.CreateReplyMessage(commandReplyMessage);
@@ -52,7 +52,7 @@ namespace AttendanceBot
             }
             else if (message.Type == "BotAddedToConversation")
             {
-                return message.CreateReplyMessage("Hi everyone, I'm Attendance Bot, who will help you keep track of attendance for different events");
+                return message.CreateReplyMessage("Hi everyone, I'm Attendance Bot, who will help you keep track of attendance for different events, type $help to see list of available commands");
             }
             else if (message.Type == "BotRemovedFromConversation")
             {

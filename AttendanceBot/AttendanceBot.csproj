@@ -133,7 +133,9 @@
   <ItemGroup>
     <Content Include="default.htm" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -151,6 +153,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\IntegerExtensions.cs" />
     <Compile Include="Helpers\StringExtensions.cs" />
     <Compile Include="Infrastructure\Repositories\DatabaseConfiguration.cs" />
     <Compile Include="Infrastructure\Repositories\EventAttendanceRepository.cs" />
@@ -165,6 +168,8 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\Arvixe.pubxml" />
+    <None Include="Properties\PublishProfiles\attendancebot - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Azure.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

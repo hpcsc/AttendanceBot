@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AttendanceBot.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -57,10 +58,10 @@ namespace AttendanceBot.Models
 
         public override string ToString()
         {
-            return $"## {Name}" + Environment.NewLine +
-                Environment.NewLine + Environment.NewLine + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.Yes), "Yes") +
-                Environment.NewLine + Environment.NewLine + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.No), "No") +
-                Environment.NewLine + Environment.NewLine + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.Maybe), "Maybe");
+            return $"## {Name}" + 
+                3.Lines() + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.Yes), "Yes") +
+                2.Lines() + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.No), "No") +
+                2.Lines() + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.Maybe), "Maybe");
         }
 
         private List<AttendanceEntry> FindAttendance(Func<AttendanceEntry, bool> condition)

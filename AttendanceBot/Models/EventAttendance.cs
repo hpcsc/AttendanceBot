@@ -11,6 +11,17 @@ namespace AttendanceBot.Models
         public string ConversationId { get; private set; }
         public string Name { get; private set; }
         public DateTime CreatedDate { get; private set; }
+        private static readonly string _messageTemplate =
+            @"## {0}
+
+Yes ( {1} )
+{2}
+
+No ( {3} )
+{4}
+
+Maybe ( {5} )
+{6}";
 
         public EventAttendance(string conversationId, string name)
         {
@@ -22,7 +33,7 @@ namespace AttendanceBot.Models
 
         public void In(string userId, string name)
         {
-            if(!_attendance.ContainsKey(userId))
+            if (!_attendance.ContainsKey(userId))
             {
                 _attendance[userId] = new AttendanceEntry(userId, name, AttendanceStatus.Yes);
             }
@@ -58,10 +69,18 @@ namespace AttendanceBot.Models
 
         public override string ToString()
         {
-            return $"## {Name}" + 
-                3.Lines() + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.Yes), "Yes") +
-                2.Lines() + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.No), "No") +
-                2.Lines() + FormatAttendanceEntries(FindAttendance(a => a.Status == AttendanceStatus.Maybe), "Maybe");
+            var yesEntries = FindAttendance(a => a.Status == AttendanceStatus.Yes);
+            var noEntries = FindAttendance(a => a.Status == AttendanceStatus.No);
+            var maybeEntries = FindAttendance(a => a.Status == AttendanceStatus.Maybe);
+
+            return string.Format(_messageTemplate,
+                                Name,
+                                yesEntries.Count,
+                                FormatAttendanceEntries(yesEntries),
+                                noEntries.Count,
+                                FormatAttendanceEntries(noEntries),
+                                maybeEntries.Count,
+                                FormatAttendanceEntries(maybeEntries));
         }
 
         private List<AttendanceEntry> FindAttendance(Func<AttendanceEntry, bool> condition)
@@ -69,12 +88,11 @@ namespace AttendanceBot.Models
             return _attendance.Values.Where(condition).ToList();
         }
 
-        private string FormatAttendanceEntries(List<AttendanceEntry> entries, string name)
+        private string FormatAttendanceEntries(List<AttendanceEntry> entries)
         {
-            return $"{name} ( {entries.Count} )" + Environment.NewLine +
-                string.Join(Environment.NewLine, 
-                        entries.Select(e => $"- {e.Name} " + 
-                        (string.IsNullOrWhiteSpace(e.Message) ? string.Empty : $"({e.Message})")));
+            return string.Join(Environment.NewLine,
+                        entries.Select(e => $"- {e.Name}" +
+                        (string.IsNullOrWhiteSpace(e.Message) ? string.Empty : $" ({e.Message})")));
         }
     }
 }

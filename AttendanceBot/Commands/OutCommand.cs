@@ -7,7 +7,7 @@ namespace AttendanceBot.Commands
 {
     public class OutCommand : BotCommandBase
     {
-        public override string CommandName { get { return CommandPrefix + "out"; } }
+        protected override string BaseCommandName { get; } = "out";
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {

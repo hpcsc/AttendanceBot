@@ -42,7 +42,7 @@ namespace AttendanceBot.Commands
         
         public static List<string> ListAvailableCommands()
         {
-            return _commands.Select(c => c.CommandName).ToList();
+            return _commands.Select(c => string.Join(" or ", c.SupportedCommandNames)).ToList();
         }
 
         private static Option<string[]> SplitMessage(string message)

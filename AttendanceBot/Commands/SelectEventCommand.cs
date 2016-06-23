@@ -7,7 +7,7 @@ namespace AttendanceBot.Commands
 {
     public class SelectEventCommand : BotCommandBase
     {
-        public override string CommandName { get { return CommandPrefix + "select"; } }
+        protected override string BaseCommandName { get; } = "select";
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {

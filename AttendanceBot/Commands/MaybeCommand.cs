@@ -7,7 +7,7 @@ namespace AttendanceBot.Commands
 {
     public class MaybeCommand : BotCommandBase
     {
-        public override string CommandName { get { return CommandPrefix + "maybe"; } }
+        protected override string BaseCommandName { get; } = "maybe";
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {

@@ -8,14 +8,22 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
 
 ## Supported Commands
 
+```
+In Telegram, both types of command can be used interchangable. Skype doesn't like commands to start with /, so $ style is preferred
+```
+
 <table>
     <tr>
         <th>Command</th>
+        <th>Alternative</th>
         <th>Description</th>
     </tr>
     <tr>
         <td>
             $start EVENT_NAME
+        </td>
+        <td>
+            /start EVENT_NAME
         </td>
         <td>
             Start an event. When a new event is started, it's automatically set as current event
@@ -28,12 +36,20 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
             $status EVENT_NAME
         </td>
         <td>
+            /status
+            <br/>
+            /status EVENT_NAME
+        </td>
+        <td>
             View current status of an event (how many Yes/No/Maybe). When calling without parameter, it's default to current event
         </td>
     </tr>
     <tr>
         <td>
             $in
+        </td>
+        <td>
+            /in
         </td>
         <td>
             Set In for current user
@@ -44,12 +60,18 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
             $out (Message)
         </td>
         <td>
+            /out (Message)
+        </td>
+        <td>
             Set Out for current user with an optional message
         </td>
     </tr>
     <tr>
         <td>
             $maybe (Message)
+        </td>
+        <td>
+            /maybe (Message)
         </td>
         <td>
             Set Maybe for current user with an optional message
@@ -60,6 +82,9 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
             $list
         </td>
         <td>
+            /list
+        </td>
+        <td>
             List all events available
         </td>
     </tr>
@@ -68,12 +93,18 @@ A shameless stealing of idea from https://storebot.me/bot/whosinbot (done by  my
             $select EVENT_NAME
         </td>
         <td>
+            /select EVENT_NAME
+        </td>
+        <td>
             Set an event as active
         </td>
     </tr>
     <tr>
         <td>
             $help
+        </td>
+        <td>
+            N/A
         </td>
         <td>
             Show available bot commands

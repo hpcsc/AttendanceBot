@@ -8,7 +8,8 @@ namespace AttendanceBot.Infrastructure.Repositories
     public abstract class MongoRepositoryBase
     {
         protected IMongoDatabase Database;
-        public MongoRepositoryBase()
+
+        protected MongoRepositoryBase()
         {
             var applicationSettings = new ApplicationSettings();
             var client = new MongoClient(applicationSettings.ConnectionString);

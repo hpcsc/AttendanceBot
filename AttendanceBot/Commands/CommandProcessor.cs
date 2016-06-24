@@ -53,12 +53,7 @@ namespace AttendanceBot.Commands
             }
 
             var splitted = Regex.Split(message, "\\s+");
-            if(!splitted.Any())
-            {
-                return null;
-            }
-
-            return splitted;
+            return !splitted.Any() ? null : splitted;
         }
     }
 }

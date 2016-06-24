@@ -13,12 +13,9 @@ namespace AttendanceBot.Commands
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {
             var allEvents = AttendanceRegistry.FindAllEventNames(originalMessage.ConversationId);
-            if(allEvents.Any())
-            {
-                return string.Join(Environment.NewLine, allEvents.Select(e => $"- {e}"));
-            }
-
-            return "No events available";
+            return allEvents.Any() ? 
+                string.Join(Environment.NewLine, allEvents.Select(e => $"- {e}")) : 
+                "No events available";
         }
     }
 }

@@ -11,15 +11,15 @@ namespace AttendanceBot.Commands
 
         public override Option<string> Handle(string[] messageElements, Message originalMessage)
         {
-            if(messageElements.Length == 1)
+            if (messageElements.Length == 1)
             {
                 return "Event name is required";
             }
 
-            var result = AttendanceRegistry.Start(originalMessage.ConversationId, 
+            var result = AttendanceRegistry.Start(originalMessage.ConversationId,
                 string.Join(" ", messageElements.Skip(1)));
 
-            return result.Match(e => "Event started", m => m);            
-        }        
+            return result.Match(e => "Event started", m => m);
+        }
     }
 }

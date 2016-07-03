@@ -1,4 +1,5 @@
-﻿using AttendanceBot.Models;
+﻿using AttendanceBot.Infrastructure.Repositories.PersistenceModel;
+using AttendanceBot.Models;
 using MongoDB.Bson.Serialization;
 
 namespace AttendanceBot.Infrastructure.Repositories
@@ -12,6 +13,11 @@ namespace AttendanceBot.Infrastructure.Repositories
                 cm.MapProperty("ConversationId");
                 cm.MapProperty("Name");
                 cm.MapProperty("CreatedDate");
+            });
+
+            BsonClassMap.RegisterClassMap<CurrentEventsPersistenceModel>(cm =>
+            {
+                cm.MapProperty("Values");
             });
         }
     }

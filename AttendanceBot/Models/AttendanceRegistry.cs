@@ -29,10 +29,19 @@ namespace AttendanceBot.Models
                         _attendanceHistory[e.ConversationId][e.Name] = e;
                     }
                 },
-                error =>
-                {
-                    //Log 
-                });            
+                Log);
+
+            repository.FindCurrentEvents()
+                .Match(
+                    model =>
+                    {
+                        foreach (var e in model.Values)
+                        {
+                            
+                        }
+                    },
+                    Log
+                );
         }
 
         public static void SaveState()
@@ -42,6 +51,13 @@ namespace AttendanceBot.Models
             {
                 repository.Save(e);
             }
+
+            repository.SaveCurrentEvents(_current.Values.ToDictionary(c => c.ConversationId, c => c.Name));
+        }
+
+        private static void Log(string error)
+        {
+            
         }
 
         public static Option<EventAttendance> FindCurrent(string conversationId)

@@ -50,6 +50,10 @@
       <HintPath>..\packages\Elmah.Contrib.WebApi.1.0.10.25\lib\net45\Elmah.Contrib.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Elmah.MongoDB, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.mongodb.driver.1.4\lib\net45\Elmah.MongoDB.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="LanguageExt.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LanguageExt.Core.1.7.38\lib\net46\LanguageExt.Core.dll</HintPath>
       <Private>True</Private>
@@ -168,7 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="AppSettingsSecrets.config" />
     <None Include="Properties\PublishProfiles\Arvixe.pubxml" />
     <None Include="Properties\PublishProfiles\attendancebot - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Azure.pubxml" />
